@@ -10,15 +10,5 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    @Autowired
-    EmployeeMapper employeeMapper;
-    public List<Employee> getAll() {
-        return employeeMapper.selectByExampleWithDept(null);
-    }
 
-    //@Transactional
-    public void saveEmployee(Employee employee){
-        employeeMapper.insertSelective(employee);
-        int num = 1/0;
-    }
 }

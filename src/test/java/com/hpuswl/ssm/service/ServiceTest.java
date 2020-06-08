@@ -15,11 +15,6 @@ public class ServiceTest {
 
     @Test
     public void testSaveEmployee(){
-        Employee employee = new Employee();
-        employee.setEmpName("Jerry");
-        employee.setEmail("jerry@solvay.com");
-        employee.setGender("F");
-        employee.setdId(1);
-        employeeService.saveEmployee(employee);
+
     }
 }

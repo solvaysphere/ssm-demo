@@ -1,7 +1,5 @@
 package com.hpuswl.ssm.controller;
 
-import com.github.pagehelper.PageInfo;
-import com.hpuswl.ssm.entity.Employee;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -35,7 +29,7 @@ public class MvcTest {
 
     @Test
     public void testGetEmps() throws Exception {
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/emps").param("pn", "1")).andReturn();
+        /*MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/emps").param("pn", "1")).andReturn();
         PageInfo<Employee> pageInfo = (PageInfo<Employee>) mvcResult.getRequest().getAttribute("pageInfo");
 
         System.out.println("当前页：" + pageInfo.getPageNum());
@@ -51,6 +45,6 @@ public class MvcTest {
         List<Employee> list = pageInfo.getList();
         for (Employee employee : list) {
             System.out.println("ID："+employee.getEmpId()+"==>Name:"+employee.getEmpName());
-        }
+        }*/
     }
 }

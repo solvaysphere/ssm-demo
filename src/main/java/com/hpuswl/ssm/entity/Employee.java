@@ -1,63 +1,58 @@
 package com.hpuswl.ssm.entity;
 
-public class Employee {
-    private Integer empId;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
-    private String empName;
+import java.io.Serializable;
 
-    private String gender;
-
-    private String email;
-
-    private Integer dId;
-
-    private Department department;
-
-    public Integer getEmpId() {
-        return empId;
+@TableName("tb_employee")
+public class Employee extends Model<Employee> {
+    @TableId(type = IdType.AUTO)
+    private Integer id ;
+    private String lastName;
+    private String email ;
+    private Integer gender ;
+    private Integer age ;
+    public Integer getId() {
+        return id;
     }
-
-    public void setEmpId(Integer empId) {
-        this.empId = empId;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
-    public String getEmpName() {
-        return empName;
+    public String getLastName() {
+        return lastName;
     }
-
-    public void setEmpName(String empName) {
-        this.empName = empName == null ? null : empName.trim();
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
-    }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
+    }
+    public Integer getGender() {
+        return gender;
+    }
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", lastName=" + lastName + ", email=" + email
+                + ", gender=" + gender + ", age=" + age + "]";
     }
 
-    public Integer getdId() {
-        return dId;
-    }
-
-    public void setdId(Integer dId) {
-        this.dId = dId;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }
