@@ -1,5 +1,5 @@
 # ssm-crm
-Spring4整合Mybatis
+Spring4整合Mybatis-Plus
 
 ### 版本说明
 1. Spring: 4.3.27.RELEASE
