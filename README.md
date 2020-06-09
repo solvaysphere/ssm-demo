@@ -1,4 +1,4 @@
-# ssm-crm
+# ssm-demo
 Spring4整合Mybatis-Plus
 
 ```xml
