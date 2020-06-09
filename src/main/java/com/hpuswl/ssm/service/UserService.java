@@ -1,6 +1,6 @@
 package com.hpuswl.ssm.service;
 
-import com.hpuswl.ssm.entity.Employee;
+import com.hpuswl.ssm.entity.User;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author solvay
  * @since 2020-06-08
  */
-public interface EmployeeService extends IService<Employee> {
+public interface UserService extends IService<User> {
 
 }

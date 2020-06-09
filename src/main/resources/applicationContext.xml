@@ -25,7 +25,42 @@
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <property name="dataSource" ref="dataSource" />
         <property name="mapperLocations" value="classpath:/mappers/*.xml" />
+        <!-- Mybatis Plus全局配置 -->
+        <property name="globalConfig" ref="globalConfig"></property>
+        <!-- Mybatis Plus插件配置 -->
+        <property name="plugins">
+            <array>
+                <!-- 分页插件配置 -->
+                <bean id="paginationInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"/>
+                <!-- 执行分析配置 -->
+                <bean id="sqlExplainInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.SqlExplainInterceptor">
+                    <property name="stopProceed" value="true" />
+                </bean>
+                <!-- 乐观锁插件 -->
+                <bean id="optimisticLockerInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor">
+                </bean>
+                <!-- 性能拦截器，兼打印sql，不建议生产环境配置-->
+                <bean id="performanceInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.PerformanceInterceptor">
+                    <property name="format" value="true" />
+                    <!--<property name="maxTime" value="5" />-->
+                </bean>
+            </array>
+        </property>
     </bean>
+
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
+        <property name="dbColumnUnderline" value="true" />
+        <property name="sqlInjector" ref="logicSqlInjector" />
+        <property name="logicDeleteValue" value="-1" />
+        <property name="logicNotDeleteValue" value="1" />
+    </bean>
+
+    <bean id="logicSqlInjector" class="com.baomidou.mybatisplus.mapper.LogicSqlInjector" />
+
     <!--Mapper接口包的扫描器-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hpuswl.ssm.dao" />
